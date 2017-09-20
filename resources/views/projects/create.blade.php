@@ -26,8 +26,8 @@
                                   </div>
 
                                   <input   type="hidden"
-                                          name="project_id"
-                                          value="{{ $project_id }}"
+                                          name="company_id"
+                                          value="{{ $company_id }}"
                                            />
                                   </div>
 
