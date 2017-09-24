@@ -1,9 +1,6 @@
 # Pmanager 
 This is a project management system built with Laravel 5.5
 
-
-A blogging app built with [Ionic 2](http://ionicframework.com) and  [Firebase](https://firebase.google.com)
-
 ## Tutorial
 The video tutorials for this repo is on youtube, please do well to subscribe: https://www.youtube.com/watch?v=oltgtexDbdo&list=PLnBvgoOXZNCP2LEKmvu2W-eUkO-DYn0TL
 
