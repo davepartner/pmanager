@@ -16,8 +16,11 @@
 
       <!-- Example row of columns -->
       <div class="row  col-md-12 col-lg-12 col-sm-12" style="background: white; margin: 10px; ">
-      <a href="/projects/create" class="pull-right btn btn-default btn-sm" >Add Project</a>
+     <!-- <a href="/projects/create" class="pull-right btn btn-default btn-sm" >Add Project</a> -->
 <br/>
+
+@include('partials.comments')
+
 
 <div class="row container-fluid">
 
@@ -25,7 +28,7 @@
                             {{ csrf_field() }}
 
 
-                            <input type="hidden" name="commentable_type" value="Project">
+                            <input type="hidden" name="commentable_type" value="App\Project">
                             <input type="hidden" name="commentable_id" value="{{$project->id}}">
 
 
@@ -67,16 +70,8 @@
 
                         </div>
 
+                      
 
-
-
-    @foreach($project->comments as $comment)
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <h2>{{ $comment->body }} </h2>
-          <p class="text-danger"> {{$comment->url}} </p>
-          <p><a class="btn btn-primary" href="/projects/{{ $project->id }}" role="button"> View Project »</a></p>
-        </div>
-      @endforeach 
       </div>
 </div>
 
@@ -89,9 +84,11 @@
           <div class="sidebar-module">
             <h4>Actions</h4>
             <ol class="list-unstyled">
-              <li><a href="/projects/{{ $project->id }}/edit">Edit</a></li>
-              <li><a href="/project/create">Create new project</a></li>
-              <li><a href="/projects">My projects</a></li>
+              <li><a href="/projects/{{ $project->id }}/edit">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+              Edit</a></li>
+              <li><a href="/project/create"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create new project</a></li>
+              <li><a href="/projects"><i class="fa fa-user-o" aria-hidden="true"></i> My projects</a></li>
             
             <br/>
 

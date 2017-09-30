@@ -57,8 +57,9 @@
           <div class="sidebar-module">
             <h4>Actions</h4>
             <ol class="list-unstyled">
-              <li><a href="/companies/{{ $company->id }}">View companies</a></li>
-              <li><a href="/companies">All companies</a></li>
+              <li><a href="/companies/{{ $company->id }}"><i class="fa fa-building-o" aria-hidden="true"></i>
+               View companies</a></li>
+              <li><a href="/companies"><i class="fa fa-building" aria-hidden="true"></i> All companies</a></li>
               
             </ol>
           </div>

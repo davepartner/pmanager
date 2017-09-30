@@ -25,12 +25,29 @@
                                            />
                                   </div>
 
-                                  <input   type="hidden"
+                                  @if($companies == null)
+                                  <input   
+                                  class="form-control"
+                                  type="hidden"
                                           name="company_id"
                                           value="{{ $company_id }}"
                                            />
                                   </div>
 
+                                  @endif
+
+                            @if($companies != null)
+                            <div class="form-group">
+                                <label for="company-content">Select company</label>
+
+                                <select name="company_id" class="form-control" > 
+
+                                @foreach($companies as $company)
+                                        <option value="{{$company->id}}"> {{$company->name}} </option>
+                                      @endforeach
+                                </select>
+                            </div>
+                            @endif
 
                             <div class="form-group">
                                 <label for="project-content">Description</label>
@@ -63,7 +80,7 @@
           <div class="sidebar-module">
             <h4>Actions</h4>
             <ol class="list-unstyled">
-              <li><a href="/projects">My projects</a></li>
+              <li><a href="/projects"><i class="fa fa-user-o" aria-hidden="true"></i> My projects</a></li>
               
             </ol>
           </div>
