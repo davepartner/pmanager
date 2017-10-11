@@ -11,7 +11,9 @@
 
     <ul class="list-group">
     @foreach($projects as $project)
-        <li class="list-group-item"> <a href="/projects/{{ $project->id }}" >{{ $project->name }}</a></li>
+        <li class="list-group-item"> 
+        <i class="fa fa-play" aria-hidden="true"></i>
+        <a href="/projects/{{ $project->id }}" >{{ $project->name }}</a></li>
     @endforeach
     </ul>
 

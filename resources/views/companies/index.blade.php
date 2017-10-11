@@ -12,7 +12,7 @@
     <ul class="list-group">
     @foreach($companies as $company)
         <li class="list-group-item"> 
-        <a href="/companies/{{ $company->id }}" > <i class="fa fa-caret-square-o-right" aria-hidden="true"></i> {{ $company->name }}</a></li>
+        <i class="fa fa-play" aria-hidden="true"></i> <a href="/companies/{{ $company->id }}" >  {{ $company->name }}</a></li>
     @endforeach
     </ul>
 

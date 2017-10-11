@@ -96,6 +96,7 @@
             @if($project->user_id == Auth::user()->id)
             
               <li>
+              <i class="fa fa-power-off" aria-hidden="true"></i>
               <a   
               href="#"
                   onclick="
