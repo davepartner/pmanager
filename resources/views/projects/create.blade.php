@@ -23,7 +23,7 @@
                                           spellcheck="false"
                                           class="form-control"
                                            />
-                                  </div>
+                               
 
                                   @if($companies == null)
                                   <input   
@@ -32,10 +32,10 @@
                                           name="company_id"
                                           value="{{ $company_id }}"
                                            />
-                                  </div>
+                                 
 
                                   @endif
-
+                            </div>
                             @if($companies != null)
                             <div class="form-group">
                                 <label for="company-content">Select company</label>
