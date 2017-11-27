@@ -15,6 +15,7 @@
 
     <script src="https://use.fontawesome.com/874dbadbd7.js"></script>
 
+
 </head>
 <body>
     <div id="app">
@@ -22,7 +23,7 @@
             <div class="container">
                 <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
+                    <!-- Collapsed Hamburger f-->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
@@ -117,5 +118,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
+    @yield('jqueryScript')
 </body>
 </html>

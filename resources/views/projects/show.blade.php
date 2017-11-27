@@ -120,6 +120,32 @@
  @endif
               <!-- <li><a href="#">Add new member</a></li> -->
             </ol>
+<hr/>
+
+            <h4>Add members</h4>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-xs-12  col-sm-12 ">
+              <form id="add-user" action="{{ route('projects.adduser') }}"  method="POST" >
+                {{ csrf_field() }}
+                <div class="input-group"> 
+                  <input class="form-control" name = "project_id" id="project_id" value="{{$project->id}}" type="hidden">
+                  <input type="text" required class="form-control" id="email"  name = "email" placeholder="Email">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" id="addMember" >Add!</button>
+                  </span>
+                </div><!-- /input-group -->
+                </form>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+<br/>
+            <h4>Team Members</h4>
+            <ol class="list-unstyled" id="member-list">
+            @foreach($project->users as $user)
+              <li><a href="#"> {{$user->email}} </a> </li>
+              
+              @endforeach
+            </ol>
+
           </div>
 
           <!--<div class="sidebar-module">
@@ -132,3 +158,57 @@
 
 
     @endsection
+
+    @section('jqueryScript')
+                      <script type="text/javascript">
+                      
+                            $('#addMember').on('click',function(e){
+                              e.preventDefault(); //prevent the form from auto submit
+
+                              $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                                }
+                            });
+
+
+                            var formData = {
+                              project_id : $('#project_id').val(),
+                              email : $('#email').val(),
+                              '_token': $('input[name=_token]').val(),
+                            }
+
+                            var url = '/projects/adduser';
+
+                            $.ajax({
+                              type: 'post',
+                              url: "{{ URL::route('projects.adduser') }}",
+                              data : formData,
+                              dataType : 'json',
+                              success : function(data){
+
+                                    var emailField = $('#email').val();
+                                  $('#email').val('');
+                                  $('#member-list').prepend('<li><a href="#">'+ emailField +'</a> </li>');
+                                  
+                              },
+                              error: function(data){
+                                //do something with data
+                                console.log("error sending request" +data.error);
+                              }
+                            });
+
+                             
+                            });
+
+                      </script>
+
+
+@endsection
+
+
+
+
+
+
+
