@@ -48,8 +48,8 @@ class ProjectsController extends Controller
                                     
             if($projectUser){
                 //if user already exists, exit 
-                return redirect()->route('projects.show', ['project'=> $project->id])
-                ->with('success' ,  $request->input('email').' is already a member of this project');
+        
+                return response()->json(['success' ,  $request->input('email').' is already a member of this project']); 
                
             }
 
@@ -58,9 +58,8 @@ class ProjectsController extends Controller
 
                 $project->users()->attach($user->id); 
 
-                        return redirect()->route('projects.show', ['project'=> $project->id])
-                        ->with('success' ,  $request->input('email').' was added to the project successfully');
-                       
+                     return response()->json(['success' ,  $request->input('email').' was added to the project successfully']); 
+                        
                     }
                     
          }

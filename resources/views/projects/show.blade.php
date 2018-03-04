@@ -165,20 +165,20 @@
                             $('#addMember').on('click',function(e){
                               e.preventDefault(); //prevent the form from auto submit
 
-                              $.ajaxSetup({
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                                }
-                            });
+                            //   $.ajaxSetup({
+                            //     headers: {
+                            //         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                            //     }
+                            // });
 
 
                             var formData = {
-                              project_id : $('#project_id').val(),
-                              email : $('#email').val(),
+                              'project_id' : $('#project_id').val(),
+                              'email' : $('#email').val(),
                               '_token': $('input[name=_token]').val(),
                             }
 
-                            var url = '/projects/adduser';
+                            var url = 'projects/adduser';
 
                             $.ajax({
                               type: 'post',
@@ -188,13 +188,13 @@
                               success : function(data){
 
                                     var emailField = $('#email').val();
-                                  $('#email').val('');
-                                  $('#member-list').prepend('<li><a href="#">'+ emailField +'</a> </li>');
                                   
+                                  $('#member-list').prepend('<li><a href="#">'+ emailField +'</a> </li>');
+                                  $('#email').val('');
                               },
                               error: function(data){
                                 //do something with data
-                                console.log("error sending request" +data.error);
+                                console.log("error sending ajax request" + data);
                               }
                             });
 
